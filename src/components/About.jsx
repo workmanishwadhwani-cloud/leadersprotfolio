@@ -30,7 +30,6 @@ const About = ({ activeTab, setActiveTab }) => {
 
     const tabs = [
         "My Vision",
-        "Coaching Philosophy",
         "Leadership Journey",
         "Impact Gallery"
     ];
@@ -97,7 +96,6 @@ const About = ({ activeTab, setActiveTab }) => {
                                     transition={{ duration: 0.45, ease: [0.21, 0.47, 0.32, 0.98] }}
                                 >
                                     {activeTab === 'My Vision' && <ProfessionalIdentity setActiveTab={setActiveTab} />}
-                                    {activeTab === 'Coaching Philosophy' && <GrowthPhilosophy />}
                                     {activeTab === 'Impact Gallery' && <ImpactGallery />}
                                 </motion.div>
                             </AnimatePresence>
@@ -229,90 +227,7 @@ const ProfessionalIdentity = ({ setActiveTab }) => {
     );
 };
 
-const GrowthPhilosophy = () => {
-    const list = [
-        {
-            title: "Human-Centric Strategy",
-            tag: "Foundation",
-            desc: "Moving beyond spreadsheets and KPIs to understand the neural and emotional drivers that power high-performing organizations.",
-            icon: <Brain className="w-8 h-8" />,
-            bg: "/dinesh9.jpeg"
-        },
-        {
-            title: "Radical Transparency",
-            tag: "Culture",
-            desc: "Fostering an environment where 'Extreme Candor' meets 'Psychological Safety', allowing truth to travel faster than politics.",
-            icon: <Shield className="w-8 h-8" />,
-            bg: "/dinesh10.jpeg"
-        },
-        {
-            title: "Strategic Silence",
-            tag: "Mastery",
-            desc: "Mastering the power of the proactive pause. Teaching leaders to listen for what isn't being said to unlock team autonomy.",
-            icon: <MessageSquare className="w-8 h-8" />,
-            bg: "/dinesh11.jpeg"
-        },
-        {
-            title: "Scalable Mentorship",
-            tag: "Legacy",
-            desc: "Building leadership frameworks that don't just solve today's problems but institutionalize wisdom across the entire pipeline.",
-            icon: <Zap className="w-8 h-8" />,
-            bg: "/dinesh13.jpeg"
-        }
-    ];
 
-    return (
-        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 pb-10 sm:pb-20">
-            {list.map((item, i) => (
-                <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1, duration: 0.8 }}
-                    className="relative p-6 sm:p-8 md:p-12 bg-bg-secondary rounded-3xl sm:rounded-[40px] md:rounded-[60px] border border-white/5 hover:border-accent group transition-all duration-700 overflow-hidden"
-                >
-                    {/* Background Image with Overlay */}
-                    <div className="absolute inset-0 z-0">
-                        <img
-                            src={item.bg}
-                            alt=""
-                            className="w-full h-full object-cover opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-1000 grayscale group-hover:grayscale-0"
-                        />
-                        <div className="absolute inset-0 bg-[#121216]/80 mix-blend-multiply" />
-                        <div className="absolute inset-0 bg-gradient-to-br from-bg-primary via-transparent to-transparent opacity-80" />
-                    </div>
-
-                    {/* Decorative Background Blob */}
-                    <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-40 h-40 bg-accent/5 rounded-full blur-[80px] group-hover:bg-accent/20 transition-all duration-700 z-1" />
-
-                    <div className="relative z-10">
-                        <div className="flex justify-between items-start mb-6 sm:mb-8 md:mb-12">
-                            <div className="p-3 sm:p-4 md:p-5 bg-bg-primary/80 backdrop-blur-md rounded-2xl sm:rounded-3xl border border-white/10 text-accent group-hover:scale-110 group-hover:bg-accent group-hover:text-black transition-all duration-500 shadow-2xl">
-                                {item.icon}
-                            </div>
-
-                        </div>
-
-                        <div className="mb-6">
-                            <span className="px-4 py-1.5 bg-accent/10 border border-accent/20 rounded-full text-accent text-[10px] font-black uppercase tracking-[0.3em] inline-block mb-4">
-                                {item.tag}
-                            </span>
-                            <h4 className="text-xl sm:text-2xl md:text-3xl font-black uppercase text-white tracking-tighter leading-none">{item.title}</h4>
-                        </div>
-
-                        <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed font-medium transition-colors group-hover:text-white">
-                            {item.desc}
-                        </p>
-                    </div>
-
-                    {/* Bottom Border Glow */}
-                    <div className="absolute bottom-0 left-12 right-12 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                </motion.div>
-            ))}
-        </div>
-    );
-};
 
 const ExperienceHighlight = () => {
     const [selectedJob, setSelectedJob] = useState(null);

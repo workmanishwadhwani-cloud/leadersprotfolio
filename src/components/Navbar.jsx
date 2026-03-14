@@ -19,8 +19,8 @@ const Navbar = ({ setActiveAboutTab }) => {
 
   // Scroll-spy: update active nav link based on which section is in view
   useEffect(() => {
-    const sectionIds = ['home', 'about', 'services', 'tools'];
-    const titleMap = { home: 'Home', about: 'About', services: 'Services', tools: 'Toolkit' };
+    const sectionIds = ['home', 'about', 'services', 'tools', 'insights'];
+    const titleMap = { home: 'Home', about: 'About', services: 'Services', tools: 'Toolkit', insights: 'Insights' };
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -51,6 +51,7 @@ const Navbar = ({ setActiveAboutTab }) => {
     { title: 'About', href: '#about' },
     { title: 'Services', href: '#services' },
     { title: 'Toolkit', href: '#tools' },
+    { title: 'Insights', href: '#insights' },
   ];
 
   const handleScrollTo = (e, href, title) => {
@@ -66,7 +67,6 @@ const Navbar = ({ setActiveAboutTab }) => {
 
   const aboutCategories = [
     "My Vision",
-    "Coaching Philosophy",
     "Leadership Journey",
     "Impact Gallery"
   ];

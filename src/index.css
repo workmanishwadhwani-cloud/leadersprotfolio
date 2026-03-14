@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&family=Pacifico&family=Anna&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer theme {
   :root {
@@ -11,7 +11,7 @@
     --accent-glow: rgba(212, 175, 55, 0.25);
     --border-color: #27272a;
 
-    --font-heading: 'Sora', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 
     --spacing-section: 7rem;
@@ -46,27 +46,29 @@
   h6 {
     font-family: var(--font-heading);
     line-height: 1.15;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 
   h1 {
-    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-size: clamp(3.5rem, 5vw, 4rem);
   }
 
   h2 {
-    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-size: clamp(2.5rem, 4vw, 3rem);
     margin-bottom: 1.5rem;
   }
 
   h3 {
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-size: clamp(1.375rem, 2vw, 1.625rem);
   }
 
   p {
     color: var(--text-secondary);
     font-family: var(--font-body);
+    font-size: clamp(1rem, 1.25vw, 1.125rem);
     line-height: 1.7;
+    max-width: 65ch;
   }
 
   * {
@@ -283,5 +285,340 @@
   /* Smooth gradient fade edges */
   .fade-edge-x {
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  /* ─── YouTube Insights Section ─────────────────────────────────────── */
+
+  .yt-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .yt-subtitle {
+    max-width: 560px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-top: 0.75rem;
+    line-height: 1.75;
+  }
+
+  /* "Auto-updating" live indicator */
+  .yt-live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    padding: 0.3rem 0.9rem;
+    background: rgba(212, 175, 55, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    border-radius: 9999px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .yt-live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 6px #22c55e;
+    animation: ytPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes ytPulse {
+
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.5;
+      transform: scale(0.75);
+    }
+  }
+
+  /* 3-column responsive grid */
+  .yt-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+
+  @media (max-width: 1024px) {
+    .yt-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .yt-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  /* ─── Video Card ─── */
+  .yt-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    position: relative;
+  }
+
+  .yt-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(212, 175, 55, 0.35);
+    box-shadow: 0 24px 60px rgba(212, 175, 55, 0.08),
+      0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Thumbnail area */
+  .yt-thumb-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: block;
+    overflow: hidden;
+    background: var(--bg-primary);
+  }
+
+  .yt-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .yt-card:hover .yt-thumb-img {
+    transform: scale(1.05);
+  }
+
+  .yt-thumb-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Dark hover overlay + play button */
+  .yt-thumb-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .yt-card:hover .yt-thumb-overlay {
+    opacity: 1;
+  }
+
+  .yt-play-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 8px rgba(212, 175, 55, 0.2),
+      0 8px 32px rgba(0, 0, 0, 0.6);
+  }
+
+  /* "Latest Insight" badge */
+  .yt-new-badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.2rem 0.65rem;
+    background: var(--accent);
+    color: #000;
+    font-size: 0.6rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-radius: 9999px;
+    font-family: var(--font-body);
+  }
+
+  /* Card body */
+  .yt-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    flex: 1;
+  }
+
+  .yt-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .yt-date {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+  }
+
+  .yt-time-ago {
+    margin-left: auto;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    opacity: 0.7;
+  }
+
+  .yt-title {
+    font-family: var(--font-heading);
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    flex: 1;
+  }
+
+  .yt-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .yt-title a:hover {
+    color: var(--accent);
+  }
+
+  /* Watch CTA inside card */
+  .yt-watch-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1rem;
+    margin-top: 0.25rem;
+    background: rgba(212, 175, 55, 0.07);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 10px;
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    font-family: var(--font-body);
+  }
+
+  .yt-watch-btn:hover {
+    background: rgba(212, 175, 55, 0.14);
+    border-color: rgba(212, 175, 55, 0.45);
+    transform: translateX(3px);
+  }
+
+  /* Demo notice strip */
+  .yt-demo-notice {
+    padding: 0.5rem 1.5rem;
+    background: rgba(255, 165, 0, 0.06);
+    border-top: 1px solid rgba(255, 165, 0, 0.12);
+    font-size: 0.62rem;
+    color: rgba(255, 165, 0, 0.6);
+    font-family: var(--font-body);
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
+  /* ─── Skeleton Loader ─── */
+  .yt-skeleton {
+    pointer-events: none;
+  }
+
+  .yt-skel-thumb {
+    background: linear-gradient(90deg,
+        var(--bg-secondary) 25%,
+        #1e1e26 50%,
+        var(--bg-secondary) 75%);
+    background-size: 200% 100%;
+    animation: ytShimmer 1.6s infinite;
+  }
+
+  .yt-skel-line {
+    border-radius: 6px;
+    background: linear-gradient(90deg,
+        var(--border-color) 25%,
+        #2a2a35 50%,
+        var(--border-color) 75%);
+    background-size: 200% 100%;
+    animation: ytShimmer 1.6s infinite;
+  }
+
+  @keyframes ytShimmer {
+    0% {
+      background-position: 200% 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* ─── Error Banner ─── */
+  .yt-error-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 2rem;
+    background: rgba(255, 100, 100, 0.05);
+    border: 1px solid rgba(255, 100, 100, 0.15);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #fca5a5;
+    font-family: var(--font-body);
+  }
+
+  .yt-retry-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.9rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-family: var(--font-body);
+  }
+
+  .yt-retry-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* ─── Channel CTA row ─── */
+  .yt-channel-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
   }
 }

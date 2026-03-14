@@ -9,6 +9,7 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import { TexturedBackground } from './components/ui/textured-background';
 import { Reveal } from './components/ui/reveal.jsx';
 import ChatbotWidget from './components/ChatbotWidget';
+import YouTubeInsights from './components/YouTubeInsights';
 import { ExperienceHighlight } from './components/About';
 import StackingCards from './components/ui/stacking-card';
 
@@ -64,6 +65,12 @@ function App() {
                 <Tools />
             </Reveal>
             <StackingCards items={toolsItems} />
+
+            <div className="section-divider" />
+
+            <Reveal width="full">
+                <YouTubeInsights />
+            </Reveal>
 
             <div className="section-divider" />
 

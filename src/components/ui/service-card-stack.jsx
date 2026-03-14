@@ -156,15 +156,14 @@ export const ServiceCardStack = ({ services, onServiceClick }) => {
                 </AnimatePresence>
             </div>
 
-            {/* Instruction Text */}
-            <div className="text-center mt-6 sm:mt-8 md:mt-12">
-                <p className="text-gray-500 text-xs sm:text-sm font-medium px-4">
+            {/* Navigation Section */}
+            <div className="w-full flex flex-col items-center justify-center mt-6 sm:mt-8 md:mt-12">
+                <p className="text-gray-500 text-xs sm:text-sm font-medium px-4 mb-5 sm:mb-8 text-center">
                     Swipe or use arrows to navigate
                 </p>
-            </div>
 
-            {/* Navigation Controls */}
-            <div className="flex items-center justify-center gap-4 sm:gap-6 mt-5 sm:mt-8">
+                {/* Navigation Controls */}
+                <div className="flex items-center justify-center gap-4 sm:gap-6">
                 {/* Previous Button */}
                 <button
                     onClick={() => paginate(-1)}
@@ -198,6 +197,7 @@ export const ServiceCardStack = ({ services, onServiceClick }) => {
                     <ChevronRight className="text-white group-hover:text-black transition-colors" size={20} />
                 </button>
             </div>
+        </div>
         </div>
     );
 };

@@ -67,7 +67,7 @@ const Hero = () => {
                         <motion.h1
                             variants={itemVariants}
                             className="mb-1 leading-tight text-white text-4xl sm:text-5xl md:text-6xl"
-                            style={{ fontFamily: "'Sora', sans-serif", fontWeight: '800', letterSpacing: '-0.02em' }}
+                            style={{ fontFamily: 'var(--font-heading)' }}
                         >
                             Dinesh
                         </motion.h1>
