@@ -57,7 +57,7 @@ const Hero = () => {
                     >
                         <motion.div
                             variants={itemVariants}
-                            className="inline-block mb-4 sm:mb-6 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
+                            className="inline-block mb-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
                         >
                             <span className="text-accent text-xs sm:text-sm font-semibold tracking-wide uppercase">
                                 Hi, I am
@@ -66,14 +66,15 @@ const Hero = () => {
 
                         <motion.h1
                             variants={itemVariants}
-                            className="mb-4 sm:mb-6 leading-tight text-white uppercase text-4xl sm:text-5xl md:text-6xl"
+                            className="mb-1 leading-tight text-white text-4xl sm:text-5xl md:text-6xl"
+                            style={{ fontFamily: "'Sora', sans-serif", fontWeight: '800', letterSpacing: '-0.02em' }}
                         >
                             Dinesh
                         </motion.h1>
 
                         <motion.h2
                             variants={itemVariants}
-                            className="text-xl sm:text-2xl md:text-3xl font-bold text-accent mb-4 sm:mb-6"
+                            className="text-xl sm:text-2xl md:text-3xl font-bold text-accent mb-2"
                         >
                             Executive Coach &amp; Leadership Advisor
                         </motion.h2>
@@ -107,31 +108,21 @@ const Hero = () => {
                         </motion.div>
                     </motion.div>
 
-                    {/* Right Side: Hero Image */}
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-                        className="relative flex justify-center md:justify-end hidden sm:flex"
+                        className="relative flex justify-center md:justify-end flex items-end self-end pt-10 md:pt-20"
                     >
-                        <div className="relative w-full max-w-[350px] md:max-w-[500px] group">
+                        <div className="relative w-full max-w-[300px] md:max-w-[450px] lg:max-w-[550px] group">
                             <motion.img
                                 whileHover={{ scale: 1.02 }}
                                 transition={{ type: "spring", stiffness: 300 }}
                                 src={heroImage}
                                 alt="Dinesh"
-                                className="w-full h-auto object-contain relative z-10 drop-shadow-[0_0_30px_rgba(212,175,55,0.2)]"
+                                className="w-full h-auto max-h-[70vh] md:max-h-[85vh] object-contain object-bottom relative z-10 drop-shadow-[0_0_30px_rgba(212,175,55,0.2)]"
                             />
 
-                            {/* Floating decorative card */}
-                            <motion.div
-                                animate={{ y: [0, -20, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -top-10 -left-10 w-20 h-20 bg-accent/20 rounded-2xl backdrop-blur-xl border border-white/10 p-4 hidden md:block"
-                            >
-                                <div className="w-full h-2 bg-accent/40 rounded-full mb-2" />
-                                <div className="w-1/2 h-2 bg-accent/20 rounded-full" />
-                            </motion.div>
                         </div>
                     </motion.div>
                 </div>

@@ -9,7 +9,7 @@ export const toolsItems = [
         title: "Technology Landscape",
         tag: "Engineering DNA",
         description: "Deep technical mastery across Java, C++, C#, and modern web architectures like Microservices, React, and Angular. Bridging legacy systems with future-ready stacks.",
-        imageSrc: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop",
+        imageSrc: "/dinesh9.jpeg",
         color: "#1a1a2e",
     },
     {
@@ -17,7 +17,7 @@ export const toolsItems = [
         title: "Cloud & Infrastructure",
         tag: "Platform Scale",
         description: "Architecting multi-tenant SaaS ecosystems on Azure, AWS, and IBM Cloud. Ensuring 99.9x availability and high-performance throughput for enterprise-scale platforms.",
-        imageSrc: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop",
+        imageSrc: "/dinesh2.jpeg",
         color: "#0f2027",
     },
     {
@@ -25,15 +25,15 @@ export const toolsItems = [
         title: "Leadership & Agile",
         tag: "Strategic Growth",
         description: "Pioneering Agile transformations using SAFe and Scrum. Institutionalizing cultures of mentoring, continuous improvement, and high-performance delivery models.",
-        imageSrc: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop",
-        color: "#1c1c1c",
+        imageSrc: "/dinesh3.jpeg",
+        color: "#d22727ff",
     },
     {
         id: 4,
         title: "AI Integration",
         tag: "Future Architecture",
         description: "Operationalizing AI across enterprise workflows. Optimizing R&D operations through intelligent forecasting and automated quality institutionalization.",
-        imageSrc: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
+        imageSrc: "/dinesh4.jpeg",
         color: "#16213e",
     },
     {
@@ -41,7 +41,7 @@ export const toolsItems = [
         title: "Global Operations",
         tag: "Enterprise Impact",
         description: "Driving multi-million dollar business objectives by leading 500+ professionals across global R&D lines, focusing on measurable productivity and strategic alignment.",
-        imageSrc: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
+        imageSrc: "/dinesh14.jpeg",
         color: "#0d0d0d",
     }
 ];

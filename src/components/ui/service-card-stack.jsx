@@ -87,7 +87,10 @@ export const ServiceCardStack = ({ services, onServiceClick }) => {
                         className="absolute w-full h-full"
                     >
                         {/* Service Card */}
-                        <div className="w-full h-full rounded-3xl sm:rounded-[40px] md:rounded-[48px] border border-white/10 bg-[#121216] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col md:flex-row">
+                        <div
+                            style={{ backgroundColor: currentService.color || '#121216' }}
+                            className="w-full h-full rounded-3xl sm:rounded-[40px] md:rounded-[48px] border border-white/10 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col md:flex-row"
+                        >
                             {/* Content Side */}
                             <div className="flex-1 p-5 sm:p-8 md:p-12 flex flex-col justify-between">
                                 <div className="space-y-4 sm:space-y-6">

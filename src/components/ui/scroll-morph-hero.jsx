@@ -2,33 +2,33 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
 
 // --- Constants ---
-const IMG_WIDTH = 60;
-const IMG_HEIGHT = 85;
+const IMG_WIDTH = 100;
+const IMG_HEIGHT = 100;
 const TOTAL_IMAGES = 20;
 const MAX_SCROLL = 3000;
 
 // Coaching & leadership themed images
 const IMAGES = [
-    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=300&q=80", // team meeting
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80", // professional portrait
-    "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&q=80", // executive
-    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=300&q=80", // team collaboration
-    "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=300&q=80", // coaching session
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=300&q=80", // buildings
-    "https://images.unsplash.com/photo-1573496799515-eebbb63814f2?w=300&q=80", // businesswoman
-    "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=300&q=80", // workshop
-    "https://images.unsplash.com/photo-1464746133101-a2c3f88e0dd9?w=300&q=80", // strategy
-    "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=300&q=80", // whiteboard
-    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=300&q=80", // office
-    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=300&q=80", // group
-    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=300&q=80", // modern office
-    "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=300&q=80", // leadership
-    "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=300&q=80", // signing
-    "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=300&q=80", // conference
-    "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=300&q=80", // keynote
-    "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=300&q=80", // remote work
-    "https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?w=300&q=80", // award
-    "https://images.unsplash.com/photo-1491336477066-31156b5e4f35?w=300&q=80", // speaking
+    "/dinesh1.jpeg",
+    "/dinesh2.jpeg",
+    "/dinesh3.jpeg",
+    "/dinesh4.jpeg",
+    "/dinesh5.jpeg",
+    "/dinesh6.jpeg",
+    "/dinesh7.jpeg",
+    "/dinesh8.jpeg",
+    "/dinesh9.jpeg",
+    "/dinesh10.jpeg",
+    "/dinesh11.jpeg",
+    "/dinesh13.jpeg",
+    "/dinesh14.jpeg",
+    "/dinesh15.jpeg",
+    "/dinesh16.jpeg",
+    "/dinesh17.jpeg",
+    "/dinesh18.jpeg",
+    "/dinesh1.jpeg",
+    "/dinesh2.jpeg",
+    "/dinesh3.jpeg",
 ];
 
 const lerp = (start, end, t) => start * (1 - t) + end * t;

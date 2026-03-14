@@ -96,7 +96,7 @@ const About = ({ activeTab, setActiveTab }) => {
                                     exit={{ opacity: 0, y: -20, scale: 0.99 }}
                                     transition={{ duration: 0.45, ease: [0.21, 0.47, 0.32, 0.98] }}
                                 >
-                                    {activeTab === 'My Vision' && <ProfessionalIdentity />}
+                                    {activeTab === 'My Vision' && <ProfessionalIdentity setActiveTab={setActiveTab} />}
                                     {activeTab === 'Coaching Philosophy' && <GrowthPhilosophy />}
                                     {activeTab === 'Impact Gallery' && <ImpactGallery />}
                                 </motion.div>
@@ -112,13 +112,13 @@ const About = ({ activeTab, setActiveTab }) => {
 
 /* --- Section Components --- */
 
-const ProfessionalIdentity = () => {
+const ProfessionalIdentity = ({ setActiveTab }) => {
     const [topIndex, setTopIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
     const images = [
-        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800"
+        "/dinesh1.jpeg",
+        "/dinesh15.jpeg",
+        "/dinesh4.jpeg"
     ];
 
     useEffect(() => {
@@ -130,65 +130,100 @@ const ProfessionalIdentity = () => {
     }, [images.length, isHovered]);
 
     return (
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 items-center">
-            {/* Visual Stack Column */}
-            <div
-                className="relative h-[300px] sm:h-[400px] lg:h-[600px] group"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-            >
-                {images.map((img, i) => {
-                    const isTop = i === topIndex;
-                    const order = (i - topIndex + images.length) % images.length;
-
-                    return (
-                        <motion.div
-                            key={i}
-                            animate={{
-                                zIndex: images.length - order,
-                                rotate: order === 0 ? 0 : order === 1 ? -5 : 5,
-                                scale: 1 - order * 0.05,
-                                y: order * 20,
-                                x: order * 20,
-                                opacity: 1
-                            }}
-                            className="absolute inset-0 rounded-2xl sm:rounded-3xl lg:rounded-[40px] overflow-hidden border-2 border-white/10 shadow-3xl"
-                            whileHover={{
-                                scale: 1.02,
-                                transition: { duration: 0.3 }
-                            }}
-                        >
-                            <img src={img} alt="" className={`w-full h-full object-cover transition-all duration-700 ${isTop ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`} />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
-
-                        </motion.div>
-                    );
-                })}
+        <div className="relative p-6 sm:p-8 md:p-12 rounded-3xl sm:rounded-[40px] lg:rounded-[60px] border border-white/5 overflow-hidden">
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0 z-0">
+                <img
+                    src="/dinesh9.jpeg"
+                    alt=""
+                    className="w-full h-full object-cover opacity-30 grayscale transition-opacity duration-700 hover:opacity-50"
+                />
+                <div className="absolute inset-0 bg-[#121216]/70 mix-blend-multiply" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/90 to-transparent" />
             </div>
 
-            {/* Content Column */}
-            <div className="space-y-12">
-                <div>
-                    <div className="text-3xl sm:text-4xl font-black uppercase leading-none mb-6 sm:mb-8">
-                        The Leadership <br /> <span className="text-accent underline decoration-white/5">Architect</span>
-                    </div>
-                    <div className="space-y-4 sm:space-y-6 text-gray-400 leading-relaxed text-sm sm:text-base md:text-lg max-w-xl">
-                        <p>
-                            I am an AI-driven engineering leader with over 27 years of experience in designing, building, and delivering enterprise-scale software products. My career has focused on shaping product strategy, technology direction, and execution to successfully ship complex platforms used at scale across global markets.
-                        </p>
-                        <p>
-                            Currently, I serve as Senior Director of Engineering at NICE Ltd., where I lead the Workforce and Customer Experience (WCX) engineering organization, a 400+ member team responsible for delivering enhancements across eight enterprise product lines.
-                        </p>
-                        <p>
-                            My expertise lies in operationalizing AI on multi-tenant cloud platforms (Azure and AWS), with a strong emphasis on governance, observability, scalability, and cost optimization.
-                        </p>
-                        <p>
-                            As a strong advocate of Enterprise Agile, I have led large-scale agile transformations, enabling organizations to improve throughput, quality, and predictability.
-                        </p>
-                    </div>
+            <div className="relative z-10 grid lg:grid-cols-2 gap-10 lg:gap-24 items-center">
+                {/* Visual Stack Column */}
+                <div
+                    className="relative h-[300px] sm:h-[400px] lg:h-[600px] group"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                >
+                    {images.map((img, i) => {
+                        const isTop = i === topIndex;
+                        const order = (i - topIndex + images.length) % images.length;
+
+                        return (
+                            <motion.div
+                                key={i}
+                                animate={{
+                                    zIndex: images.length - order,
+                                    rotate: order === 0 ? 0 : order === 1 ? -5 : 5,
+                                    scale: 1 - order * 0.05,
+                                    y: order * 20,
+                                    x: order * 20,
+                                    opacity: 1
+                                }}
+                                className="absolute inset-0 rounded-2xl sm:rounded-3xl lg:rounded-[40px] overflow-hidden border-2 border-white/10 shadow-3xl"
+                                whileHover={{
+                                    scale: 1.02,
+                                    transition: { duration: 0.3 }
+                                }}
+                            >
+                                <img src={img} alt="" className={`w-full h-full object-cover object-top transition-all duration-700 ${isTop ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`} />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+
+                            </motion.div>
+                        );
+                    })}
                 </div>
 
+                {/* Content Column */}
+                <div className="space-y-12">
+                    <div>
+                        <div className="text-3xl sm:text-4xl font-black uppercase leading-none mb-6 sm:mb-8">
+                            The Leadership <br /> <span className="text-accent underline decoration-white/5">Architect</span>
+                        </div>
+                        <div className="space-y-4 sm:space-y-6 text-gray-400 leading-relaxed text-sm sm:text-base md:text-lg max-w-xl">
+                            <p>
+                                I am an AI-driven engineering leader with over 27 years of experience in designing, building, and delivering enterprise-scale software products. My career has focused on shaping product strategy, technology direction, and execution to successfully ship complex platforms used at scale across global markets.
+                            </p>
+                            <p>
+                                Currently, I serve as Senior Director of Engineering at NICE Ltd., where I lead the Workforce and Customer Experience (WCX) engineering organization, a 400+ member team responsible for delivering enhancements across eight enterprise product lines.
+                            </p>
+                            <p>
+                                My expertise lies in operationalizing AI on multi-tenant cloud platforms (Azure and AWS), with a strong emphasis on governance, observability, scalability, and cost optimization.
+                            </p>
+                            <p>
+                                As a strong advocate of Enterprise Agile, I have led large-scale agile transformations, enabling organizations to improve throughput, quality, and predictability.
+                            </p>
+                        </div>
 
+                        {/* CTA — Explore My Journey */}
+                        <div className="flex justify-start" style={{ paddingLeft: '160px' }}>
+                            <motion.button
+                                onClick={() => {
+                                    setActiveTab('Leadership Journey');
+                                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                                }}
+                                whileHover={{ scale: 1.04, x: 6 }}
+                                whileTap={{ scale: 0.97 }}
+                                style={{ WebkitTapHighlightColor: 'transparent', color: 'var(--accent)', backgroundColor: 'rgba(212,175,55,0.1)' }}
+                                className="group mt-4 inline-flex items-center gap-3 px-7 py-3.5 rounded-full border border-accent/40 font-semibold text-sm tracking-wide hover:bg-accent hover:text-black focus:outline-none focus:ring-0 transition-all duration-300 backdrop-blur-sm"
+                            >
+                                <span>Want to explore more about me?</span>
+                                <motion.span
+                                    animate={{ x: [0, 5, 0] }}
+                                    transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+                                >
+                                    <ArrowRight size={16} />
+                                </motion.span>
+                            </motion.button>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
         </div>
     );
@@ -201,28 +236,28 @@ const GrowthPhilosophy = () => {
             tag: "Foundation",
             desc: "Moving beyond spreadsheets and KPIs to understand the neural and emotional drivers that power high-performing organizations.",
             icon: <Brain className="w-8 h-8" />,
-            bg: "https://images.unsplash.com/photo-1558403194-611308249627?q=80&w=800&auto=format&fit=crop"
+            bg: "/dinesh9.jpeg"
         },
         {
             title: "Radical Transparency",
             tag: "Culture",
             desc: "Fostering an environment where 'Extreme Candor' meets 'Psychological Safety', allowing truth to travel faster than politics.",
             icon: <Shield className="w-8 h-8" />,
-            bg: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
+            bg: "/dinesh10.jpeg"
         },
         {
             title: "Strategic Silence",
             tag: "Mastery",
             desc: "Mastering the power of the proactive pause. Teaching leaders to listen for what isn't being said to unlock team autonomy.",
             icon: <MessageSquare className="w-8 h-8" />,
-            bg: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&auto=format&fit=crop"
+            bg: "/dinesh11.jpeg"
         },
         {
             title: "Scalable Mentorship",
             tag: "Legacy",
             desc: "Building leadership frameworks that don't just solve today's problems but institutionalize wisdom across the entire pipeline.",
             icon: <Zap className="w-8 h-8" />,
-            bg: "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?q=80&w=800&auto=format&fit=crop"
+            bg: "/dinesh13.jpeg"
         }
     ];
 
@@ -426,61 +461,68 @@ const ExperienceHighlight = () => {
                             exit={{ opacity: 0, scale: 0.9, y: 100, rotateX: 10 }}
                             transition={{ type: "spring", damping: 20, stiffness: 300 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="relative w-full max-w-xl bg-bg-secondary border border-white/10 rounded-2xl sm:rounded-3xl md:rounded-[40px] shadow-3xl max-h-[85vh] flex flex-col"
+                            className="relative w-full max-w-4xl bg-[#121216] border border-white/10 rounded-2xl sm:rounded-3xl md:rounded-[40px] shadow-3xl max-h-[90vh] flex flex-col md:flex-row overflow-hidden"
                         >
                             {/* Background color gradient */}
-                            <div className={`absolute inset-0 pointer-events-none bg-gradient-to-br ${selectedJob.gradient} opacity-100`} />
+                            <div className={`absolute inset-0 pointer-events-none bg-gradient-to-br ${selectedJob.gradient} opacity-20`} />
 
                             <button
                                 onClick={() => setSelectedJob(null)}
-                                className="absolute top-6 right-6 p-3 bg-white/5 rounded-full text-gray-400 hover:text-white transition-colors z-10"
+                                className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2.5 sm:p-3 bg-black/40 backdrop-blur-md rounded-full text-white hover:text-accent transition-colors z-20 border border-white/10"
                             >
-                                <X size={24} />
+                                <X size={20} />
                             </button>
 
-                            {/* Scrollable Content Area */}
-                            <div data-lenis-prevent className="relative flex-1 overflow-y-auto overscroll-contain scrollbar-hide p-5 sm:p-8 md:p-10">
-                                <div className="flex flex-col items-center gap-6 mb-10">
-                                    <div className="w-20 h-20 bg-white rounded-3xl p-4 shadow-2xl">
+                            {/* Left Column: Logo & Header info */}
+                            <div className="md:w-[40%] bg-black/30 p-6 sm:p-8 md:p-10 border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-center relative z-10">
+                                <div className="flex flex-col items-center text-center gap-6">
+                                    <div className="w-24 h-24 bg-white rounded-3xl p-4 shadow-2xl">
                                         <img src={selectedJob.logo} alt="" className="w-full h-full object-contain" />
                                     </div>
-                                    <div className="text-center">
-                                        <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase text-white leading-tight mb-2">{selectedJob.role}</h3>
-                                        <p className="text-accent font-bold uppercase tracking-widest text-sm">{selectedJob.co}</p>
+                                    <div>
+                                        <h3 className="text-2xl sm:text-3xl font-black uppercase text-white leading-tight mb-2 tracking-tight">{selectedJob.role}</h3>
+                                        <p className="text-accent font-black uppercase tracking-widest text-sm">{selectedJob.co}</p>
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-6 mb-12">
-                                    <div className="flex items-center gap-4 text-gray-400">
-                                        <Calendar className="text-accent" size={20} />
+                                <div className="mt-8 space-y-4">
+                                    <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/5">
+                                        <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center text-accent">
+                                            <Calendar size={18} />
+                                        </div>
                                         <div>
-                                            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-600 leading-none">Timeline</p>
-                                            <p className="text-white font-bold">{selectedJob.year}</p>
+                                            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 mb-1">Timeline</p>
+                                            <p className="text-white font-bold text-sm tracking-wide">{selectedJob.year}</p>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-4 text-gray-400">
-                                        <Clock className="text-accent" size={20} />
+                                    <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/5">
+                                        <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center text-accent">
+                                            <Clock size={18} />
+                                        </div>
                                         <div>
-                                            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-600 leading-none">Experience</p>
-                                            <p className="text-white font-bold">{selectedJob.duration}</p>
+                                            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 mb-1">Experience</p>
+                                            <p className="text-white font-bold text-sm tracking-wide">{selectedJob.duration}</p>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div className="space-y-6 mb-8">
+                            {/* Right Column: Descriptions & Skills */}
+                            <div data-lenis-prevent className="flex-1 overflow-y-auto overscroll-contain scrollbar-hide p-6 sm:p-8 md:p-10 relative z-10 flex flex-col justify-between">
+                                <div className="space-y-8 mb-8">
                                     <div>
-                                        <h5 className="text-xs font-black uppercase tracking-[0.2em] text-gray-500 mb-3 flex items-center gap-2">
-                                            <Target size={12} className="text-accent" /> Advisory Focus
+                                        <h5 className="text-xs font-black uppercase tracking-[0.3em] text-gray-500 mb-4 flex items-center gap-2">
+                                            <Target size={14} className="text-accent" /> Advisory Focus
                                         </h5>
-                                        <p className="text-gray-300 leading-relaxed text-base">{selectedJob.fullDesc}</p>
+                                        <p className="text-gray-300 leading-relaxed text-sm lg:text-base">{selectedJob.fullDesc}</p>
                                     </div>
                                     <div>
-                                        <h5 className="text-xs font-black uppercase tracking-[0.2em] text-gray-500 mb-4 flex items-center gap-2">
-                                            <Zap size={12} className="text-accent" /> Methods & Mastery
+                                        <h5 className="text-xs font-black uppercase tracking-[0.3em] text-gray-500 mb-4 flex items-center gap-2">
+                                            <Zap size={14} className="text-accent" /> Methods & Mastery
                                         </h5>
-                                        <div className="flex flex-wrap gap-2">
+                                        <div className="flex flex-wrap gap-2 sm:gap-3">
                                             {selectedJob.skills.map((skill, i) => (
-                                                <span key={i} className="px-3 py-1.5 bg-white/5 border border-white/5 rounded-lg text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+                                                <span key={i} className="px-3 sm:px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] sm:text-xs font-bold text-gray-300 uppercase tracking-widest shadow-sm">
                                                     {skill}
                                                 </span>
                                             ))}
@@ -490,9 +532,9 @@ const ExperienceHighlight = () => {
 
                                 <button
                                     onClick={() => setSelectedJob(null)}
-                                    className="w-full py-5 bg-[#d4af37] text-black font-black uppercase tracking-widest rounded-2xl hover:bg-white transition-colors"
+                                    className="w-full py-4 mt-auto bg-[#d4af37] text-black font-black uppercase tracking-widest text-xs sm:text-sm rounded-xl hover:bg-white transition-colors border border-transparent hover:border-white shadow-lg shadow-accent/20"
                                 >
-                                    Close Journey
+                                    Close Journey Details
                                 </button>
                             </div>
                         </motion.div>

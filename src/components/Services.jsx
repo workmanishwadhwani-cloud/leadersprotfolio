@@ -17,8 +17,9 @@ const services = [
         title: "Executive 1:1 Coaching",
         description: "Personalized strategic partnership for senior leaders seeking to amplify their executive presence, decision-making clarity, and leadership impact across the organization.",
         icon: <Brain className="w-6 h-6" />,
-        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
-        video: "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4",
+        image: "/dinesh14.jpeg",
+        color: "#1a1a2e",
+        // video: "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4",
         points: ["Executive Presence", "Strategic Thinking", "Stakeholder Management", "Decision Clarity"],
         details: [
             "Deep-dive assessments to identify growth levers",
@@ -33,7 +34,8 @@ const services = [
         title: "Leadership Team Offsites",
         description: "High-impact alignment sessions designed for C-Suite and senior leadership teams to build cohesion, align strategy, and unlock collective intelligence.",
         icon: <Users className="w-6 h-6" />,
-        image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=800",
+        image: "/dinesh15.jpeg",
+        color: "#2a1b18",
         video: "https://cdn.pixabay.com/video/2019/06/21/24634-343750098_large.mp4",
         points: ["Team Alignment", "Strategy Mapping", "Conflict Resolution", "Vision Building"],
         details: [
@@ -49,7 +51,8 @@ const services = [
         title: "Cultural Transformation",
         description: "Scaling leadership culture across organizations by embedding coaching mindsets, psychological safety, and high-performance behaviors into the DNA of teams.",
         icon: <Sparkles className="w-6 h-6" />,
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
+        image: "/dinesh16.jpeg",
+        color: "#12222a",
         video: "https://cdn.pixabay.com/video/2020/02/04/31777-389843219_large.mp4",
         points: ["Culture Design", "Change Management", "Behavioral Shifts", "Scalable Frameworks"],
         details: [
@@ -65,7 +68,8 @@ const services = [
         title: "High-Impact Workshops",
         description: "Intensive, immersive workshops on Emotional Intelligence, conflict resolution, and high-performance leadership, designed for lasting behavioral transformation.",
         icon: <Target className="w-6 h-6" />,
-        image: "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&q=80&w=800",
+        image: "/dinesh17.jpeg",
+        color: "#261a29",
         video: "https://cdn.pixabay.com/video/2016/09/02/4913-181759256_large.mp4",
         points: ["EQ Training", "Conflict Mastery", "Performance Labs", "Team Dynamics"],
         details: [
@@ -121,7 +125,8 @@ const Services = () => {
                                 exit={{ opacity: 0, scale: 0.9, y: 100, rotateX: 10 }}
                                 transition={{ type: "spring", damping: 20, stiffness: 300 }}
                                 onClick={(e) => e.stopPropagation()}
-                                className="relative w-full max-w-5xl bg-[#121216] border border-white/10 rounded-2xl sm:rounded-3xl md:rounded-[40px] shadow-3xl max-h-[80vh] flex flex-col md:flex-row"
+                                style={{ backgroundColor: selectedService.color || '#121216' }}
+                                className="relative w-full max-w-5xl border border-white/10 rounded-2xl sm:rounded-3xl md:rounded-[40px] shadow-3xl max-h-[80vh] flex flex-col md:flex-row"
                             >
                                 {/* Close button */}
                                 <button
