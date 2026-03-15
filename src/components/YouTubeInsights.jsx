@@ -6,7 +6,7 @@ import { Play, Calendar, ExternalLink, Youtube, RefreshCw } from 'lucide-react';
 //  CONFIG — swap these two values with your own
 // ─────────────────────────────────────────────
 const YT_API_KEY = 'AIzaSyDgX_vlkeAmN8AvP-c0YkqsLMxRO1PIhzg';
-const YT_CHANNEL_ID = 'UCdIkY_WCB_lKnc92gZT_XYA';
+const YT_CHANNEL_ID = 'UCp6nJBPGAhzF1yTrc3gvnsw';
 // The uploads playlist is always "UC..." → "UU..." (replace UC with UU)
 const YT_PLAYLIST_ID = YT_CHANNEL_ID.replace(/^UC/, 'UU');
 const MAX_RESULTS = 3;
@@ -130,6 +130,7 @@ const DEMO_VIDEOS = [
 //  Video Card
 // ─────────────────────────────────────────────
 const VideoCard = ({ video, index }) => {
+    const [play, setPlay] = useState(false);
     const [imgError, setImgError] = useState(false);
     const isDemo = video.videoId.startsWith('demo');
 
@@ -150,83 +151,100 @@ const VideoCard = ({ video, index }) => {
             className="yt-card group"
         >
             {/* Thumbnail */}
-            <a
-                href={video.url}
-                target="_blank"
-                rel="noopener noreferrer"
+            <div
                 className="yt-thumb-wrapper"
+                onClick={() => setPlay(true)}
                 aria-label={`Watch: ${video.title}`}
+                style={{ cursor: "pointer" }}
             >
-                {!imgError && video.thumbnail ? (
-                    <img
-                        src={video.thumbnail}
-                        alt={video.title}
-                        className="yt-thumb-img"
-                        onError={() => setImgError(true)}
+
+                {play ? (
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src={`https://www.youtube.com/embed/${video.videoId}?autoplay=1`}
+                        title={video.title}
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
+                        className="yt-video-frame"
                     />
                 ) : (
-                    <div
-                        className="yt-thumb-placeholder"
-                        style={{ background: gradients[index % gradients.length] }}
-                    >
-                        <Youtube size={48} className="text-accent/40" />
-                    </div>
+                    <>
+                        {!imgError && video.thumbnail ? (
+                            <img
+                                src={video.thumbnail}
+                                alt={video.title}
+                                className="yt-thumb-img"
+                                onError={() => setImgError(true)}
+                            />
+                        ) : (
+                            <div
+                                className="yt-thumb-placeholder"
+                                style={{ background: gradients[index % gradients.length] }}
+                            >
+                                <Youtube size={48} className="text-accent/40" />
+                            </div>
+                        )}
+
+                        <div className="yt-thumb-overlay">
+                            <motion.div
+                                className="yt-play-btn"
+                                whileHover={{ scale: 1.12 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <Play size={22} fill="black" className="ml-1" />
+                            </motion.div>
+                        </div>
+                    </>
                 )}
 
-                {/* Overlay */}
-                <div className="yt-thumb-overlay">
-                    <motion.div
-                        className="yt-play-btn"
-                        whileHover={{ scale: 1.12 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <Play size={22} fill="black" className="ml-1" />
-                    </motion.div>
-                </div>
-
-                {/* NEW badge */}
-                {index === 0 && (
-                    <span className="yt-new-badge">Latest Insight</span>
-                )}
-            </a>
-
-            {/* Card Body */}
-            <div className="yt-card-body">
-                {/* Date */}
-                <div className="yt-meta">
-                    <Calendar size={12} className="text-accent shrink-0" />
-                    <time dateTime={video.published} className="yt-date">
-                        {formatDate(video.published)}
-                    </time>
-                    <span className="yt-time-ago">{timeAgo(video.published)}</span>
-                </div>
-
-                {/* Title */}
-                <h3 className="yt-title">
-                    <a href={video.url} target="_blank" rel="noopener noreferrer">
-                        {video.title}
-                    </a>
-                </h3>
-
-                {/* Watch CTA */}
-                <a
-                    href={video.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="yt-watch-btn"
-                >
-                    <Youtube size={14} />
-                    Watch on YouTube
-                    <ExternalLink size={12} className="ml-auto opacity-60" />
-                </a>
             </div>
 
-            {isDemo && (
-                <div className="yt-demo-notice">
-                    Demo — add your Channel ID &amp; API Key to load real videos
-                </div>
+            {/* NEW badge */}
+            {index === 0 && (
+                <span className="yt-new-badge">Latest Insight</span>
             )}
-        </motion.article>
+
+            {/* Card Body */ }
+    <div className="yt-card-body">
+        {/* Date */}
+        <div className="yt-meta">
+            <Calendar size={12} className="text-accent shrink-0" />
+            <time dateTime={video.published} className="yt-date">
+                {formatDate(video.published)}
+            </time>
+            <span className="yt-time-ago">{timeAgo(video.published)}</span>
+        </div>
+
+        {/* Title */}
+        <h3 className="yt-title">
+            <a href={video.url} target="_blank" rel="noopener noreferrer">
+                {video.title}
+            </a>
+        </h3>
+
+        {/* Watch CTA */}
+        <a
+            href={video.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="yt-watch-btn"
+        >
+            <Youtube size={14} />
+            Watch on YouTube
+            <ExternalLink size={12} className="ml-auto opacity-60" />
+        </a>
+    </div>
+
+    {
+        isDemo && (
+            <div className="yt-demo-notice">
+                Demo — add your Channel ID &amp; API Key to load real videos
+            </div>
+        )
+    }
+        </motion.article >
     );
 };
 
