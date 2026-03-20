@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 export default defineConfig({
-  base: 'https://github.com/dineshkwadhwani/dineshkwadhwani.github.io',
   plugins: [react()],
+  base: '/leaders-protfolio',
 
   resolve: {
     alias: {
