@@ -9,7 +9,7 @@ export const toolsItems = [
         title: "Technology Landscape",
         tag: "Engineering DNA",
         description: "Deep technical mastery across Java, C++, C#, and modern web architectures like Microservices, React, and Angular. Bridging legacy systems with future-ready stacks.",
-        imageSrc: "/dinesh9.jpeg",
+        imageSrc: "./dinesh9.jpeg",
         color: "#1a1a2e",
     },
     {
@@ -17,7 +17,7 @@ export const toolsItems = [
         title: "Cloud & Infrastructure",
         tag: "Platform Scale",
         description: "Architecting multi-tenant SaaS ecosystems on Azure, AWS, and IBM Cloud. Ensuring 99.9x availability and high-performance throughput for enterprise-scale platforms.",
-        imageSrc: "/dinesh2.jpeg",
+        imageSrc: "./dinesh2.jpeg",
         color: "#0f2027",
     },
     {
@@ -25,7 +25,7 @@ export const toolsItems = [
         title: "Leadership & Agile",
         tag: "Strategic Growth",
         description: "Pioneering Agile transformations using SAFe and Scrum. Institutionalizing cultures of mentoring, continuous improvement, and high-performance delivery models.",
-        imageSrc: "/dinesh3.jpeg",
+        imageSrc: "./dinesh3.jpeg",
         color: "#d22727ff",
     },
     {
@@ -33,7 +33,7 @@ export const toolsItems = [
         title: "AI Integration",
         tag: "Future Architecture",
         description: "Operationalizing AI across enterprise workflows. Optimizing R&D operations through intelligent forecasting and automated quality institutionalization.",
-        imageSrc: "/dinesh4.jpeg",
+        imageSrc: "./dinesh4.jpeg",
         color: "#16213e",
     },
     {
@@ -41,7 +41,7 @@ export const toolsItems = [
         title: "Global Operations",
         tag: "Enterprise Impact",
         description: "Driving multi-million dollar business objectives by leading 500+ professionals across global R&D lines, focusing on measurable productivity and strategic alignment.",
-        imageSrc: "/dinesh14.jpeg",
+        imageSrc: "./dinesh14.jpeg",
         color: "#0d0d0d",
     }
 ];

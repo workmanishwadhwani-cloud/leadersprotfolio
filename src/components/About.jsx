@@ -114,9 +114,9 @@ const ProfessionalIdentity = ({ setActiveTab }) => {
     const [topIndex, setTopIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
     const images = [
-        "/dinesh1.jpeg",
-        "/dinesh15.jpeg",
-        "/dinesh4.jpeg"
+        "./dinesh1.jpeg",
+        "./dinesh15.jpeg",
+        "./dinesh4.jpeg"
     ];
 
     useEffect(() => {
@@ -132,7 +132,7 @@ const ProfessionalIdentity = ({ setActiveTab }) => {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <img
-                    src="/dinesh9.jpeg"
+                    src="./dinesh9.jpeg"
                     alt=""
                     className="w-full h-full object-cover opacity-30 grayscale transition-opacity duration-700 hover:opacity-50"
                 />
@@ -242,7 +242,7 @@ const ExperienceHighlight = () => {
             desc: "Championing a coaching culture for 500+ professionals across 8 global lines.",
             fullDesc: "Beyond operational leadership, I've institutionalized a mentorship framework that has scaled leadership capability across global R&D teams. I actively coach directors and VPs on executive presence, strategic alignment, and high-performance team culture.",
             skills: ["Executive Coaching", "Mentorship Programs", "Culture Building", "People Strategy"],
-            logo: "/nice-logo.png",
+            logo: "./nice-logo.png",
             gradient: "from-amber-500/20 via-yellow-600/10 to-transparent"
         },
         {
@@ -254,7 +254,7 @@ const ExperienceHighlight = () => {
             desc: "Led transformation of leadership mindset for 300+ distributed resources.",
             fullDesc: "Transformed the India operations by shifting the focus from 'management' to 'coaching'. Developed and led immersive workshops for managers, significantly reducing turnover and increasing innovation throughput by empowering individuals.",
             skills: ["Workshops", "Leadership Offsites", "Team Alignment", "Emotional Intelligence"],
-            logo: "/capita-logo.png",
+            logo: "./capita-logo.png",
             gradient: "from-blue-500/20 via-indigo-600/10 to-transparent"
         },
         {
@@ -266,7 +266,7 @@ const ExperienceHighlight = () => {
             desc: "Pioneered collaborative leadership models within engineering acquisitions.",
             fullDesc: "During the Emptoris acquisition, I navigated the complex cultural integration by coaching leadership teams to find common ground. I focused on building psychological safety and clear communication channels during high-stress transition periods.",
             skills: ["Cultural Integration", "Strategic Facilitation", "Executive Alignment", "Performance Coaching"],
-            logo: "/ibm_logo.jpg",
+            logo: "./ibm_logo.jpg",
             gradient: "from-cyan-500/20 via-teal-600/10 to-transparent"
         },
         {
@@ -278,7 +278,7 @@ const ExperienceHighlight = () => {
             desc: "Managing UI needs for various products and engineering aspects for Avery Dennison.",
             fullDesc: "As Competency Head, I was responsible for managing UI needs across various products. In my role as Engineering Manager, I led the engineering aspects of one of the key products for Avery Dennison, ensuring technical excellence and cross-functional collaboration.",
             skills: ["UI Management", "Engineering Leadership", "Product Development", "Cross-functional Teams"],
-            logo: "/1631309967239.jpg",
+            logo: "./1631309967239.jpg",
             gradient: "from-purple-500/20 via-violet-600/10 to-transparent"
         },
         {
@@ -290,7 +290,7 @@ const ExperienceHighlight = () => {
             desc: "Managing strategic programs for Turner Broadcasting, Atlanta.",
             fullDesc: "As a Senior Program Manager, I was involved in managing programs for Turner Broadcasting in Atlanta, overseeing a number of strategic projects. I coordinated cross-functional teams, managed stakeholder expectations, and delivered complex initiatives on time and within budget.",
             skills: ["Program Management", "Strategic Planning", "Stakeholder Management", "Project Delivery"],
-            logo: "/xpanxion_logo.jpg",
+            logo: "./xpanxion_logo.jpg",
             gradient: "from-emerald-500/20 via-green-600/10 to-transparent"
         },
         {
@@ -302,7 +302,7 @@ const ExperienceHighlight = () => {
             desc: "End-to-end project delivery for Zensar customers.",
             fullDesc: "As a Project Manager at Zensar Technologies, I was responsible for managing projects from inception to delivery for various Zensar customers. I led teams in delivering high-quality solutions, managing timelines, budgets, and ensuring customer satisfaction throughout the project lifecycle.",
             skills: ["Project Management", "End-to-End Delivery", "Client Relations", "Team Leadership"],
-            logo: "/image.png",
+            logo: "./image.png",
             gradient: "from-rose-500/20 via-pink-600/10 to-transparent"
         }
     ];

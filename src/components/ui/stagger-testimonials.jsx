@@ -17,13 +17,13 @@ const testimonials = [
         tempId: 1,
         testimonial: "Dinesh's technical expertise and supportive nature create a productive, positive atmosphere where teams feel confident and empowered to deliver their best.",
         by: "Rommel Sharma",
-        imgSrc: "/rommel.png"
+        imgSrc: "./rommel.png"
     },
     {
         tempId: 2,
         testimonial: "Dinesh's encouraging and open approach helps team members grow, explore new technologies, and enjoy their work while performing at their highest potential.",
         by: "Seema Kamble Nadkarni",
-        imgSrc: "/seema.png"
+        imgSrc: "./seema.png"
     },
     {
         tempId: 3,
