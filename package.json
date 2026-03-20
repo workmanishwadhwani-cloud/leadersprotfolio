@@ -2,7 +2,7 @@
   "name": "anti",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://workmanishwadhwani-cloud.github.io/leaders-profolio",
+  "homepage": "https://workmanishwadhwani-cloud.github.io/leadersportfolio",
   "type": "module",
   "scripts": {
     "dev": "vite",
