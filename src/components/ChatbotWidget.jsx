@@ -127,7 +127,7 @@ const ChatbotWidget = () => {
                         style={{ boxShadow: '0 10px 40px rgba(212, 175, 55, 0.5)' }}
                     >
                         <img
-                            src="./bot-avatar.png"
+                            src="/bot-avatar.png"
                             alt="AI Bot"
                             className="w-full h-full object-cover"
                         />
@@ -169,7 +169,7 @@ const ChatbotWidget = () => {
                                     <div className="relative">
                                         <div className="w-10 h-10 md:w-12 md:h-12 bg-[#1a1a1f] border border-accent/30 rounded-full flex items-center justify-center shadow-lg overflow-hidden">
                                             <img
-                                                src="./bot-avatar.png"
+                                                src="/bot-avatar.png"
                                                 alt="AI Bot"
                                                 className="w-full h-full object-cover"
                                             />

@@ -19,7 +19,7 @@ const Logo = ({ size = 48, className = "" }) => {
             }}
         >
             <img
-                src="./DWlogo.png"
+                src="/DWlogo.png"
                 alt="Dinesh Wadhwani Logo"
                 style={{
                     width: '100%',

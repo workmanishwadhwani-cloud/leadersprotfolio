@@ -68,7 +68,6 @@ const Navbar = ({ setActiveAboutTab }) => {
   const aboutCategories = [
     "My Vision",
     "Leadership Journey",
-    "Impact Gallery"
   ];
 
   return (

@@ -11,31 +11,31 @@ const testimonials = [
         tempId: 0,
         testimonial: "Dinesh's leadership and empathy make him a rare manager who motivates teams, resolves conflicts calmly, and builds a positive, high-trust work environment.",
         by: "Rajesh Dankh",
-        imgSrc: "/rajesh.png "
+        imgSrc: "/rajesh.png"
     },
     {
         tempId: 1,
         testimonial: "Dinesh's technical expertise and supportive nature create a productive, positive atmosphere where teams feel confident and empowered to deliver their best.",
         by: "Rommel Sharma",
-        imgSrc: "./rommel.png"
+        imgSrc: "/rommel.png"
     },
     {
         tempId: 2,
         testimonial: "Dinesh's encouraging and open approach helps team members grow, explore new technologies, and enjoy their work while performing at their highest potential.",
         by: "Seema Kamble Nadkarni",
-        imgSrc: "./seema.png"
+        imgSrc: "/seema.png"
     },
     {
         tempId: 3,
         testimonial: "Dinesh's disciplined planning, fairness, and sound judgment inspire confidence in his teams, even under pressure, enabling consistent and high-quality delivery.",
         by: "Sandeep Garud",
-        imgSrc: "sandeep.png"
+        imgSrc: "/sandeep.png"
     },
     {
         tempId: 4,
         testimonial: "Dinesh's ability to lead multi-layered teams, solve complex problems, and communicate effectively across cultures makes him an invaluable asset to any organization.",
         by: "Anand Mitragotri",
-        imgSrc: "anand.png"
+        imgSrc: "/anand.png"
     },
     {
         tempId: 5,
