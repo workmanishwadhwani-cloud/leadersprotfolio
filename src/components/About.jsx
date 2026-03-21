@@ -114,7 +114,7 @@ const ProfessionalIdentity = ({ setActiveTab }) => {
     const images = [
         "/dinesh18.jpeg",
         "/dinesh15.jpeg",
-        "/dinesh4.jpeg"
+        "/dinesh16.jpeg"
     ];
 
     useEffect(() => {
