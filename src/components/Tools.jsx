@@ -33,7 +33,7 @@ export const toolsItems = [
         title: "AI Integration",
         tag: "Future Architecture",
         description: "Operationalizing AI across enterprise workflows. Optimizing R&D operations through intelligent forecasting and automated quality institutionalization.",
-        imageSrc: "/dinesh4.jpeg",
+        imageSrc: "/coaching4.JPG",
         color: "#16213e",
     },
     {

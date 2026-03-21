@@ -112,7 +112,7 @@ const ProfessionalIdentity = ({ setActiveTab }) => {
     const [topIndex, setTopIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
     const images = [
-        "/dinesh1.jpeg",
+        "/dinesh18.jpeg",
         "/dinesh15.jpeg",
         "/dinesh4.jpeg"
     ];
@@ -207,7 +207,7 @@ const ProfessionalIdentity = ({ setActiveTab }) => {
                                 style={{ WebkitTapHighlightColor: 'transparent', color: 'var(--accent)', backgroundColor: 'rgba(212,175,55,0.1)' }}
                                 className="group mt-4 inline-flex items-center gap-3 px-7 py-3.5 rounded-full border border-accent/40 font-semibold text-sm tracking-wide hover:bg-accent hover:text-black focus:outline-none focus:ring-0 transition-all duration-300 backdrop-blur-sm"
                             >
-                                <span>Want to explore more about me?</span>
+                                <span>Explore more</span>
                                 <motion.span
                                     animate={{ x: [0, 5, 0] }}
                                     transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
