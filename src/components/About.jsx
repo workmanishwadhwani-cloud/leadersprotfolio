@@ -141,7 +141,7 @@ const ProfessionalIdentity = ({ setActiveTab }) => {
             <div className="relative z-10 grid lg:grid-cols-2 gap-10 lg:gap-24 items-center">
                 {/* Visual Stack Column */}
                 <div
-                    className="relative h-[300px] sm:h-[400px] lg:h-[600px] group"
+                    className="relative w-full max-w-md mx-auto lg:max-w-none h-[300px] sm:h-[400px] lg:h-[600px] group"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
@@ -175,12 +175,12 @@ const ProfessionalIdentity = ({ setActiveTab }) => {
                 </div>
 
                 {/* Content Column */}
-                <div className="space-y-12">
-                    <div>
+                <div className="space-y-8 lg:space-y-12 flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <div className="w-full">
                         <div className="text-3xl sm:text-4xl font-black uppercase leading-none mb-6 sm:mb-8">
                             The Leadership <br /> <span className="text-accent underline decoration-white/5">Architect</span>
                         </div>
-                        <div className="space-y-4 sm:space-y-6 text-gray-400 leading-relaxed text-sm sm:text-base md:text-lg max-w-xl">
+                        <div className="space-y-4 sm:space-y-6 text-gray-400 leading-relaxed text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0">
                             <p>
                                 I am an AI-driven engineering leader with over 27 years of experience in designing, building, and delivering enterprise-scale software products. My career has focused on shaping product strategy, technology direction, and execution to successfully ship complex platforms used at scale across global markets.
                             </p>
@@ -196,7 +196,7 @@ const ProfessionalIdentity = ({ setActiveTab }) => {
                         </div>
 
                         {/* CTA — Explore My Journey */}
-                        <div className="flex justify-start" style={{ paddingLeft: '160px' }}>
+                        <div className="flex justify-center lg:justify-start w-full mt-8 md:mt-12 lg:pl-12 xl:pl-[120px]">
                             <motion.button
                                 onClick={() => {
                                     setActiveTab('Leadership Journey');
@@ -205,7 +205,7 @@ const ProfessionalIdentity = ({ setActiveTab }) => {
                                 whileHover={{ scale: 1.04, x: 6 }}
                                 whileTap={{ scale: 0.97 }}
                                 style={{ WebkitTapHighlightColor: 'transparent', color: 'var(--accent)', backgroundColor: 'rgba(212,175,55,0.1)' }}
-                                className="group mt-4 inline-flex items-center gap-3 px-7 py-3.5 rounded-full border border-accent/40 font-semibold text-sm tracking-wide hover:bg-accent hover:text-black focus:outline-none focus:ring-0 transition-all duration-300 backdrop-blur-sm"
+                                className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full border border-accent/40 font-semibold text-sm tracking-wide hover:bg-accent hover:text-black focus:outline-none focus:ring-0 transition-all duration-300 backdrop-blur-sm"
                             >
                                 <span>Explore more</span>
                                 <motion.span
@@ -308,53 +308,98 @@ const ExperienceHighlight = () => {
     return (
         <>
             <div className="w-full" style={{ overflowX: 'clip' }}>
-                <ContainerScroll className="h-[300vh]">
-
-
-                    <ContainerSticky className="top-16 flex flex-nowrap h-[70vh] items-center pl-6 md:pl-12 ml-[50px]">
-                        {jobs.map((job, index) => (
-                            <ProcessCard
-                                key={job.id}
-                                itemsLength={jobs.length}
-                                index={index}
-                                variant="gold"
-                                className="min-w-[75%] max-w-[75%] md:min-w-[60%] md:max-w-[60%] rounded-3xl min-h-[300px]"
-                            >
-                                <ProcessCardTitle className="border-r border-[#d4af37]/20 flex flex-col items-center justify-center gap-4 min-w-[100px]">
-                                    <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-xl bg-white/10 border border-white/10">
-                                        <img src={job.logo} alt={job.co} className="w-full h-full object-cover" />
-                                    </div>
-
-                                </ProcessCardTitle>
-                                <ProcessCardBody className="flex flex-col gap-6 justify-center">
-                                    <div>
-                                        <span className="text-[#d4af37] font-black text-[10px] uppercase tracking-widest border border-[#d4af37]/20 px-3 py-1 rounded-full bg-[#d4af37]/5 inline-block mb-3">
-                                            {job.year} · {job.duration}
+                
+                {/* 🔴 Mobile View - Vertical Stacking 🔴 */}
+                <div className="block md:hidden px-4 sm:px-6 py-10 space-y-8 bg-transparent">
+                    {jobs.map((job) => (
+                        <div
+                            key={job.id}
+                            className="flex flex-col bg-gradient-to-br from-[rgba(10,10,12,0.9)_40%] to-[rgba(212,175,55,0.15)_120%] border border-[#d4af37]/30 backdrop-blur-lg rounded-3xl p-6 shadow-lg overflow-hidden relative"
+                        >
+                            <div className="border-b border-[#d4af37]/20 pb-5 mb-5 flex items-center gap-4">
+                                <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-xl bg-white/10 border border-white/10 flex-shrink-0 p-1">
+                                    <img src={job.logo} alt={job.co} className="w-full h-full object-contain rounded-xl" />
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="text-xl sm:text-2xl font-black uppercase leading-tight tracking-tighter text-white">
+                                        {job.role}
+                                    </h3>
+                                    <p className="text-[#d4af37] font-bold uppercase tracking-widest text-xs mt-1">{job.co}</p>
+                                </div>
+                            </div>
+                            
+                            <div className="flex flex-col gap-5">
+                                <span className="text-[#d4af37] w-fit font-black text-xs uppercase tracking-widest border border-[#d4af37]/20 px-3 py-1.5 rounded-full bg-[#d4af37]/5">
+                                    {job.year} · {job.duration}
+                                </span>
+                                <p className="text-gray-300 opacity-90 text-sm sm:text-base leading-relaxed">{job.desc}</p>
+                                
+                                <div className="flex flex-wrap gap-2 mt-1">
+                                    {job.skills.map((skill, i) => (
+                                        <span key={i} className="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+                                            {skill}
                                         </span>
-                                        <h3 className="text-2xl md:text-3xl font-black uppercase leading-tight tracking-tighter text-white">
-                                            {job.role}
-                                        </h3>
-                                        <p className="text-[#d4af37] font-bold uppercase tracking-widest text-xs mt-1">{job.co}</p>
-                                    </div>
-                                    <p className="text-gray-300 opacity-80 leading-relaxed max-w-lg">{job.desc}</p>
-                                    <div className="flex flex-wrap gap-2">
-                                        {job.skills.map((skill, i) => (
-                                            <span key={i} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[10px] font-bold text-gray-400 uppercase tracking-wider">
-                                                {skill}
+                                    ))}
+                                </div>
+                                
+                                <button
+                                    onClick={() => setSelectedJob(job)}
+                                    className="mt-4 self-start px-6 py-2.5 bg-[#d4af37]/10 border border-[#d4af37]/20 rounded-full text-[#d4af37] text-[10px] font-black uppercase tracking-widest hover:bg-[#d4af37]/20 transition-all cursor-pointer"
+                                >
+                                    Read More
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* 🔵 Desktop View - Horizontal Scroll 🔵 */}
+                <div className="hidden md:block">
+                    <ContainerScroll className="h-[300vh]">
+                        <ContainerSticky className="top-16 flex flex-nowrap h-[70vh] items-center pl-6 md:pl-12 ml-[50px]">
+                            {jobs.map((job, index) => (
+                                <ProcessCard
+                                    key={job.id}
+                                    itemsLength={jobs.length}
+                                    index={index}
+                                    variant="gold"
+                                    className="min-w-[75%] max-w-[75%] md:min-w-[60%] md:max-w-[60%] rounded-3xl min-h-[300px]"
+                                >
+                                    <ProcessCardTitle className="border-r border-[#d4af37]/20 flex flex-col items-center justify-center gap-4 min-w-[100px]">
+                                        <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-xl bg-white/10 border border-white/10 flex items-center justify-center p-1 cursor-default">
+                                            <img src={job.logo} alt={job.co} className="w-full h-full object-contain rounded-xl" />
+                                        </div>
+                                    </ProcessCardTitle>
+                                    <ProcessCardBody className="flex flex-col gap-6 justify-center">
+                                        <div>
+                                            <span className="text-[#d4af37] font-black text-[10px] uppercase tracking-widest border border-[#d4af37]/20 px-3 py-1 rounded-full bg-[#d4af37]/5 inline-block mb-3">
+                                                {job.year} · {job.duration}
                                             </span>
-                                        ))}
-                                    </div>
-                                    <button
-                                        onClick={() => setSelectedJob(job)}
-                                        className="self-start px-6 py-2.5 bg-[#d4af37]/10 border border-[#d4af37]/20 rounded-full text-[#d4af37] text-[10px] font-black uppercase tracking-widest hover:bg-[#d4af37]/20 transition-all cursor-pointer"
-                                    >
-                                        Read More
-                                    </button>
-                                </ProcessCardBody>
-                            </ProcessCard>
-                        ))}
-                    </ContainerSticky>
-                </ContainerScroll>
+                                            <h3 className="text-2xl md:text-3xl font-black uppercase leading-tight tracking-tighter text-white">
+                                                {job.role}
+                                            </h3>
+                                            <p className="text-[#d4af37] font-bold uppercase tracking-widest text-xs mt-1">{job.co}</p>
+                                        </div>
+                                        <p className="text-gray-300 opacity-80 leading-relaxed max-w-lg">{job.desc}</p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {job.skills.map((skill, i) => (
+                                                <span key={i} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+                                                    {skill}
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <button
+                                            onClick={() => setSelectedJob(job)}
+                                            className="self-start px-6 py-2.5 bg-[#d4af37]/10 border border-[#d4af37]/20 rounded-full text-[#d4af37] text-[10px] font-black uppercase tracking-widest hover:bg-[#d4af37]/20 transition-all cursor-pointer"
+                                        >
+                                            Read More
+                                        </button>
+                                    </ProcessCardBody>
+                                </ProcessCard>
+                            ))}
+                        </ContainerSticky>
+                    </ContainerScroll>
+                </div>
             </div>
 
             {/* Read More Modal */}
